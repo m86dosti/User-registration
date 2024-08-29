@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18px;
+            background-color: black;
+            max-width: 600px;
+            min-width: 400px;
+        }
+
+        #container{
+            background-color: gray;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 20px;
+        }
+
+        #info{
+            display: grid;
+            gap: 5px;
+        }
+
+        input{
+            border-radius: 5px;
+            border: none;
+        }
+
+        #output{
+            border: solid;
+            border-radius: 5px;
+            background-color: gray;
+            height: 100px;
+            width: auto;
+            padding: 10px;
+            margin: 20px;
+     
+    
+        }
+
+        p{text-align: center;}
+
+        button{
+            background-color: black;
+            color: white;
+            border-radius: 5px;
+            border: solid;
+            border-color: black;
+        }
+
+        button:hover{
+            background-color: rgb(15, 15, 15);
+            color: gray;
+            border-radius: 8px;
+            border-color: rgb(15, 15, 15);
+        }
+
+        button:active{
+            background-color:gray;
+            color: rgb(0, 0, 0);
+            border-radius: 8px;
+            border-color: rgb(0, 0, 0);
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="info">
+            <p l>user inforamtion</p>
+            <label>name : </label><input type="text" id="username">
+            <label>family : </label><input type="text" id="userfamily">
+            <label>age  : </label><input type="text" id="userage">
+            <button onclick="user()">send</button>
+            <button onclick="reload()">reload</button>
+
+        </div>
+        <br>
+    </div>
+
+        users : 
+        <div id="output"></div>
+
+    <script>
+
+        function reload()
+        {
+            location.reload()
+        }
+
+        function user()
+            {
+                var user =
+                [
+                    {id:1, name : "ali", family : "ahmadi" ,age : 20},
+                    {id:2, name : "reza", family : "akbari" ,age : 17},
+                    {id:3, name : "mehdi", family : "rezaii" ,age : 25},
+                ]
+
+                var output = document.getElementById('output');
+                var username = document.getElementById('username').value;
+                var userfamily = document.getElementById('userfamily').value;
+                var userage = document.getElementById('userage').value;
+
+                if(username.length < 3 || username >10)
+                {alert("Please enter a valid name !!")}
+                else if(userfamily.length < 3 || userfamily.length > 15)
+                {alert(" Please enter a valid family !!")}
+                else if(isNaN(userage) || userage.length > 15)
+                {alert("Please enter a valid age !!")}
+                else{
+                var newuser = 
+                {id: 4 ,name: username ,family: userfamily, age:  userage}
+
+                user.push(newuser)}
+
+                output.innerHTML = user;
+            }
+
+
+    </script>
+</body>
+</html>
